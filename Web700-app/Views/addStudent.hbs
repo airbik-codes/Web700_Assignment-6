@@ -1,0 +1,67 @@
+<section class="container">
+    <form action="/students/add" method="post" class="form">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="input-box">
+                <input type="text" name="firstName" placeholder="Enter first name" />
+            </div>
+            <div class="input-box">
+                <input type="text" name="lastName" placeholder="Enter last name" />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Enter your email" />
+                </div>
+            </div>
+            <div class="input-box address">
+                <input type="text" name="addressStreet" placeholder="Enter Street Address" />
+                <div class="column">
+                    <input type="text" name="addressCity" placeholder="Enter your City" />
+                    <input type="text" name="addressProvince" placeholder="Enter your Province" />
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="spacer"></div>
+
+        <fieldset>
+            <legend>Academic Information</legend>
+            <div class="job-box">
+                <h3>Enrollment Status</h3>
+                <div class="job-option">
+                    <div class="job">
+                        <input type="radio" value="Full-Time" name="status" />
+                        <label>Full-Time</label>
+                    </div>
+                    <div class="job">
+                        <input type="radio" value="Part-Time" name="status" />
+                        <label>Part-Time</label>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <h3>College Employment</h3>
+                <div class="job">
+                    <input type="checkbox" name="TA" />
+                    <label>Teaching Assistant</label>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="column">
+                <div class="select-box">
+                    {{#if courses}}
+                    <select name="course">
+                        <option value="">Select Course</option>
+                        {{#each courses}}
+                        <option value="{{this.courseId}}">{{this.courseCode}}</option>
+                        {{/each}}
+                    </select>
+                    {{else}}
+                    <div>No Courses</div>
+                    {{/if}}
+                </div>
+            </div>
+        </fieldset>
+        <div class="spacer"></div>
+        <button type="submit">Submit</button>
+    </form>
+</section>
